@@ -1,0 +1,65 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "News API",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "/current_affairs/api"
+        }
+    ],
+    "paths": {
+        "/news/get": {
+            "get": {
+                "tags": [
+                    "news"
+                ],
+                "summary": "/news/get",
+                "description": "/news/get",
+                "operationId": "/news/get",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "search",
+                        "required": true
+                    },
+                    {
+                        "name": "cat",
+                        "in": "query",
+                        "description": "search",
+                        "required": true
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "search",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "422": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Sorry, wrong email address or password. Please try again"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
